@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Booking</title>
+</head>
+<body>
+    <h1>Book A Ticket</h1>
+    <div id="movies"></div>
+    <h2>Notifications</h2>
+    <div id="notifications"></div>
+    <script>
+        const movies = [
+            {
+                id:1,
+                name:"RRR",
+            },
+            {
+                id:2,
+                name:"Salaar",
+            },
+            {
+                id:3,
+                name:"KGF",
+            },
+            {
+                id:4,
+                name:"chandramukhi",
+            },
+        ];
+        let bookedMovies = [];
+        function displayMovies(){
+            const container =
+            document.getElementById("movies");
+            movies.forEach(function(movie){
+                container.innerHTML +=
+                `
+                    <div class="card">
+                        <h3>${movie.name}</h3>
+                        <button onclick="bookTickets(${movie.id})">
+                            Book Ticket
+                        </button>
+                    </div>
+                `;
+            });
+        }
+        function bookTickets(id){
+            const movie = movies.find(function(item){
+                return item.id === id;
+            });
+            bookedMovies.push(movie.name);
+            notification();
+        }
+        // Notifications using destructuring
+        function notification(){
+            const container =
+            document.getElementById("notifications");
+            container.innerHTML = "";
+            // Reverse array
+            const reversed = [...bookedMovies].reverse();
+            // Destructuring
+            const [latest,...others] = reversed;
+            // Latest notification
+            if(latest){
+                container.innerHTML +=
+                `
+                    <div class="card latest">
+                        <h3>
+                            Latest:
+                            ${latest} movie ticket is booked
+                        </h3>
+                    </div>
+                `;
+            }
+            others.forEach(function(movie){
+                container.innerHTML +=
+                `
+                    <div class="card">
+                        <h3>
+                            ${movie} movie ticket is booked
+                        </h3>
+                    </div>
+                `;
+            });
+        }
+        displayMovies();
+    </script>
+</body>
+</html>

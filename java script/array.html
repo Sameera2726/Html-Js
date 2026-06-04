@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Using Splice</title>
+</head>
+
+<body>
+
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id ="demo5"></p>
+
+    <script>
+
+        const text = "this project belongs to sameera";
+        document.getElementById("demo1").innerHTML = text;
+        const arr = text.split(" ");
+        arr.splice(1, 0, "javascript");
+        const result = arr.join(" ");
+        document.getElementById("demo2").innerHTML = result;
+        const reverse=result.split(" ").reverse().join(" ");
+         document.getElementById("demo3").innerHTML = reverse;
+        const remove =result.split(" ");
+        remove.splice(0,1);
+        const result1= remove.join(" ");
+        document.getElementById("demo4").innerHTML = result1;
+        const surname=result1.split(" ");
+        surname.push("badam");
+        const result3= surname.join(" ");
+         document.getElementById("demo5").innerHTML = result3;
+    </script>
+</body>
+</html>

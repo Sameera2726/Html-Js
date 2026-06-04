@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Attendance</title>
+</head>
+
+<body>
+
+  <h2>Student Attendance</h2>
+
+  <ul id="studentList"></ul>
+
+  <script>
+
+    // hardcoded JSON data
+    const students = [
+      {
+        id: 1,
+        name: "siva",
+        attendance: "Present"
+      },
+      {
+        id: 2,
+        name: "ravi",
+        attendance: "Absent"
+      }
+    ];
+
+    // fake API function
+    function fakeFetch() {
+
+      return new Promise((resolve, reject) => {
+
+        setTimeout(() => {
+
+          resolve(students);
+
+        }, 1000);
+
+      });
+
+    }
+
+    // calling fake API
+    fakeFetch()
+
+    .then((data) => {
+
+      const studentList =
+      document.getElementById("studentList");
+
+      data.forEach((student) => {
+
+        const li = document.createElement("li");
+
+        li.innerText =
+        student.name + " - " + student.attendance;
+
+        studentList.appendChild(li);
+
+      });
+
+    })
+
+    .catch((error) => {
+
+      console.log("Error:", error);
+
+    });
+
+  </script>
+
+</body>
+</html>

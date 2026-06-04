@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <style>
+            .box{
+                border:2px solid black;
+                padding:10px;
+                width: 200px;
+                background-color: antiquewhite;
+                border-radius: 10px;
+            }
+            .boxcontainer{
+                display: flex;
+                gap: 10px;
+                
+            }
+        </style>
+        <div class="boxcontainer"></div>
+        <script>
+            const person1={
+                name:"b.sameera",
+                study:"b-tech",
+                percentage:"69%"
+            };
+            const person2={
+                name:"p.sai",
+                study:"b-tech",
+                percentage:"80%"
+            };
+           document.querySelector(".boxcontainer").innerHTML=
+           `
+           <div class="box">
+             <h1>${person1.name}</h1>
+             <p>${person1.study}</p>
+             <p>${person1.percentage}</p>
+           </div>
+           <div class="box">
+             <h1>${person2.name}</h1>
+             <p>${person2.study}</p>
+             <p>${person2.percentage}</p>
+            </div>
+            `;
+        </script>
+    </body>
+</html>

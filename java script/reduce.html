@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h>Maximum Number is</h>
+        <div id="demo"></div>
+        <script>
+            const num=[56,25,92,2,34];
+            const max = num.reduce(function(a,b){
+                return a>b ? a:b;
+            });
+            document.getElementById("demo").innerHTML=max;
+        </script>
+    </head>
+</html>

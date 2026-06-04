@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <title>E-commerce Cart</title>
+     <style>
+        body{
+            font-family: Arial;
+            background: aqua;
+            padding: 20px;
+        }
+        h1,h2{
+            text-align: center;
+        }
+        #products,
+        #cartItems{
+           display: flex;
+           gap:20px;
+           flex-wrap: wrap;
+           justify-content: center;
+           margin-top: 20px;
+        }
+        .card{
+            background: white;
+            width: 220px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px gray;
+            text-align: center;
+        }
+        .card img{
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        button{
+            padding: 10px;
+            margin-top: 10px;
+            width:100%;
+            cursor:pointer;
+        }
+        #total{
+            text-align: center;
+            margin-top: 20px;
+            font-size: 22px;
+        }
+        .featured{
+            border:3px solid green;
+        }
+    </style>
+</head>
+<body>
+    <h1>E-commerce website</h1>
+    <div id="products"></div>
+    <h2>cart Items</h2>
+    <div id="cartItems"></div>
+    <h2 id="total">Total:Rs 0</h2>
+    <script>
+        const products=[
+        {
+            id:1,
+            name:"Laptop",
+            price:70000,
+            image:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
+        },
+        {
+            id:2,
+            name:"Mobile",
+            price:25000,
+            image:"https://tse4.mm.bing.net/th/id/OIP.gRJKV8f3c5QvkIjmA6aPUgHaE8?pid=Api&P=0&h=180",
+        },
+        {
+            id:3,
+            name:"keyboard",
+            price:1500,
+            image:"https://tse4.mm.bing.net/th/id/OIP.OWAdOU7X5AZ2jjPa3FIzagHaE8?pid=Api&P=0&h=180",
+        },
+        {
+            id:4,
+            name:"headphones",
+            price:3000,
+            image:"https://tse2.mm.bing.net/th/id/OIP.qMnKupYMJvmaLZEtlxuF6AHaHa?pid=Api&P=0&h=180",
+        },
+        ];
+        let cart=[];
+        function displayProducts(){
+            const productContainer=document.getElementById("products");
+            products.forEach(function(product) {
+                productContainer.innerHTML +=
+                `
+                <div class="card">
+                   <img src="${product.image}">
+                   <h3>${product.name}</h3>
+                    <p>Rs${product.price}</p>
+                   <button onclick="addToCart(${product.id})">
+                       Add To Cart
+                   </button>
+                </div>
+                `;
+            });
+        }
+        displayProducts();
+
+        function addToCart(...ids){
+            ids.forEach(function(id){
+                const product=products.find(function(item){
+                    return item.id ===id;
+                });
+                cart.push(product);
+            });
+            showCart();
+        }
+    
+        function showCart(){
+           const cartContainer=document.getElementById("cartItems");
+            cartContainer.innerHTML="";
+
+
+            const[featuredItem,...otherItems]=cart;
+            let total=0;
+
+           if(featuredItem){
+              total += featuredItem.price;
+              cartContainer.innerHTML +=
+              `
+                <h2>Featured Product</h2>
+                <div class="card featured">
+                  <img src="${featuredItem.image}">
+                   <h3>${featuredItem.name}</h3>
+                    <p>Rs${featuredItem.price}</p>
+                   <button onclick="removeFromCart(0)">
+                     Remove
+                   </button>
+                </div>
+              `;
+           }
+            otherItems.forEach(function(item,index){
+                 total +=item.price;
+                 cartContainer.innerHTML +=
+                `
+                    <div class="card">
+                        <img src="${item.image}">
+                         <h3>${item.name}</h3>
+                         <p>Rs${item.price}</p>
+                        <button onclick="removeFromCart(${index+1})">
+                         Remove
+                        </button>
+                    </div>
+                `; 
+            });
+
+              document.getElementById("total").innerText="Total:Rs"+total;
+        }
+        function removeFromCart(index) {
+            cart.splice(index,1);
+            showCart();
+        }
+    </script>
+</body>
+</html>

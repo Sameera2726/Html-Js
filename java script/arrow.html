@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <script>
+        const person = {
+          name : "Hello",
+          normalFunction: function () {
+            document.getElementById("demo").innerHTML=this.name;
+          },
+        };
+            const show= {
+                 name:"Hello",
+                arrowFunction: function() {
+                document.getElementById("demo1").innerHTML = this.name; 
+                }
+           };
+        person.normalFunction();
+        show.arrowFunction(); 
+
+        function outer(a) {
+            function inner(b){
+                document.getElementById("demo2").innerHTML= a+b;
+            }
+            return inner;
+        };
+            const
+             add= outer(10);
+            add(20);
+    </script>
+</body>
+</html>

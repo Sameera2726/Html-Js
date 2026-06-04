@@ -1,0 +1,56 @@
+.container{
+    background-color: aqua;
+    padding: 20px;
+}
+.section-left{
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+}
+.section-right{
+    width: 69%;
+    display:inline-block;
+    vertical-align: top;
+}
+.display1{
+     width: 100%;
+    font-size: 0;
+    text-align: right;
+}
+.pic1,
+.pic2,
+.pic3{
+    display:inline-block;
+    width: 32%;
+    margin-left: 1%;
+    vertical-align: top;
+}
+.display1 img{
+    width: 30%;
+    height: 150px;
+    object-fit: cover;
+}
+.display2{
+    width: 69%;
+    font-size: 0;
+    margin-left: 31%;
+    margin-top: 10px;
+    text-align: right;
+}
+.pic4,
+.pic5,
+.pic6{
+    display: inline-block;
+    width: 30%;
+    margin-left: 1%;
+    vertical-align: top;
+}
+.display2 img{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+.pic{
+    font-size: 20px;
+    font-style: italic;
+}

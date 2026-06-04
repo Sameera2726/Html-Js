@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <button onclick="addDetails()">Add</button>
+        <p id="demo"></p>
+        <p id="demo1"></p>
+        <script>
+            function introduce(city,country){
+                      return this.name + this.email + " from" + " " + city + "," + country;
+            }
+            const details = [];
+            function addDetails(){
+                let name = prompt("enter name");
+                let email =prompt("enter email");
+                let city = prompt("enter city");
+                let country = prompt("enter country");
+               const person1= {
+                name : name,
+                email : email,
+                };
+                let result= introduce.call(person1,city,country);
+                 details.push(result);
+                document.getElementById("demo1").innerHTML=details.join("<br>");
+            }
+        </script>
+    </body>
+</html>

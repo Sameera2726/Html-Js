@@ -1,0 +1,38 @@
+.container{
+    padding: 20px;
+}
+.inner-container{
+    background-color: aquamarine;
+
+}
+section{
+    display:flex;
+}
+.section-left{
+    width: 30%;
+    font-size: medium;
+    background-color:pink;
+    padding: 20px 10px;
+
+}
+.section-right{
+    width: 70%;
+    height: 250px;
+    display: flex;
+    gap:10%;
+    padding: 20px 10px;
+
+}
+.pic1,
+.pic2,
+.pic3{
+    display: flex;
+}
+.pic{
+    width:30%;
+    padding:20px;
+    background-color: chocolate;
+    font-size: medium;
+    font-style: italic;
+
+}

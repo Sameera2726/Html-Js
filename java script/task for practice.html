@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Smart Expense Tracker</title>
+    </head>
+    <body>
+        <div class = "container">
+            <input type="text" id="title" placeholder="Expensetitle">
+            <select id="category">
+               <option>food</option>
+               <option> shopping</option>
+               <option>travel</option>
+            </select>
+            <input type="number" id="amount"  placeholder="Amount">
+            <button onclick="addexpense()">AddExpense</button>
+            <select id="filterCategory">
+                <option value="All">All</option>
+                <option value="food">food</option>
+                <option value="shopping">shopping</option>
+                <option value="travel">Travel</option>
+            </select>
+            <div>
+                <h3>TotalExpense</h3>
+                <p id="totalExpense">0</p>
+            </div>
+            <div>
+                <h3>Total Transaction</h3>
+                <p id="totalTransactions">0</p>
+            </div>
+            <div>
+                <h3>HighestExpense</h3>
+                <p id="HighestExpense">0</p>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="expenseTable"></tbody>
+            </table>
+            
+        </div>
+    </body>
+</html>

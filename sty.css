@@ -1,0 +1,33 @@
+.container{
+    height: 300px;
+    width:500px;
+    background-color: blue;
+    margin:10px;
+    border:solid salmon;
+}
+.inner-container{
+    
+    background-color:green;
+    border: 3px sandybrown;
+}
+.inner-container child{
+    background-color: deeppink;
+    height: 50px;
+}
+img{
+    display:inline-block;
+    margin:auto;
+    width: 50%;
+}
+.section{
+    font-size: larger;
+    font-style:oblique ;
+}
+.header{
+    background-color: firebrick;
+    font-size: 20px;
+    font-style: italic;
+}
+.sectionBox{
+    display:inline-block
+}

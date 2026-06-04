@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Add Fruits</h2>
+<ul id="fruitList">
+    <li>Mango</li>
+    <li>Orange</li>
+</ul>
+<input type="text" id="fruitInput" placeholder="Enter fruit name">
+<button onclick="addFruit()">Add</button>
+<script>
+function addFruit(name){
+    const fruitName = document.getElementById("fruitInput").value;
+    const li = document.createElement("li");
+    li.textContent = fruitName;
+    document.getElementById("fruitList").append(li);
+    document.getElementById("fruitInput").value = "";
+}
+</script>
+</body>
+</html>
